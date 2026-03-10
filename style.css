@@ -1,0 +1,172 @@
+/* ============================================
+   METU CSS KERT — Starter Stíluslap
+   ============================================
+   
+   Ez a te vásznod! Csak ezt a fájlt szerkesztheted.
+   A HTML kódhoz NE NYÚLJ.
+   
+   Tippek:
+   - Használj Google Fonts-ot: https://fonts.google.com/
+     Példa: @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+   - Színpaletta generátor: https://coolors.co/
+   - CSS referencia: https://developer.mozilla.org/en-US/docs/Web/CSS
+   
+   Sok sikert! 🎨
+   ============================================ */
+
+
+/* --- GOOGLE FONTS IMPORTÁLÁS ---
+   Cseréld ki a saját választásodra!
+   -------------------------------- */
+/* @import url('https://fonts.googleapis.com/css2?family=VALASZD+KI&display=swap'); */
+
+
+/* --- ALAP BEÁLLÍTÁSOK --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Háttérszín */
+    background-color: #ffffff;
+    /* Betűtípus */
+    font-family: sans-serif;
+    /* Betűszín */
+    color: #333333;
+    /* Sormagasság */
+    line-height: 1.6;
+}
+
+
+/* --- OLDAL KERET --- */
+.oldal-keret {
+    /* Az egész oldal kerete / szélessége */
+}
+
+
+/* --- FEJLÉC --- */
+.fejlec {
+    /* Háttér, padding, szöveg igazítás */
+}
+
+.fooldal-cim {
+    /* Főcím stílusa */
+}
+
+.kiemeles {
+    /* A "CSS" szó kiemelése a címben */
+}
+
+.alcim {
+    /* Alcím stílusa */
+}
+
+
+/* --- BEVEZETŐ --- */
+.bevezeto {
+    /* A bevezető szekció háttere, padding-ja */
+}
+
+.bevezeto-szoveg p {
+    /* Bevezető bekezdések */
+}
+
+
+/* --- KÁRTYÁK (a fő tartalom elemei) --- */
+.kartya {
+    /* Háttér, padding, margin, border, border-radius, box-shadow */
+}
+
+.kartya-cim {
+    /* Kártya címek stílusa */
+}
+
+
+/* --- SZABÁLYOK LISTA --- */
+.szabaly-lista {
+    /* Lista stílus (list-style, padding) */
+}
+
+.szabaly {
+    /* Egyes szabály elemek */
+}
+
+
+/* --- INSPIRÁCIÓ RÁCS --- */
+.inspiracio-racsozat {
+    /* Használj flexbox-ot a 4 elem elrendezéséhez!
+       display: flex;
+       flex-wrap: wrap;
+       gap: ...;
+    */
+}
+
+.inspiracio-elem {
+    /* Egyes inspiráció kártyák */
+}
+
+.inspiracio-elem h4 {
+    /* Inspiráció alcímek */
+}
+
+
+/* --- TECHNOLÓGIA BADGE-EK --- */
+.tech-lista {
+    /* Flexbox elrendezés a badge-ekhez */
+}
+
+.tech-badge {
+    /* Kis címkék stílusa: háttér, padding, border-radius */
+}
+
+
+/* --- OLDALSÁV --- */
+.oldalsav {
+    /* Oldalsáv háttere, pozíciója */
+}
+
+.oldalsav-cim {
+    /* Oldalsáv címek */
+}
+
+.szerzo-nev {
+    /* Szerző neve — írd át a CSS-ben is ha akarod kiemelni */
+}
+
+
+/* --- LINKEK --- */
+.link-lista {
+    /* Link lista stílus */
+}
+
+.kulso-link {
+    /* Link stílus: szín, text-decoration */
+}
+
+.kulso-link:hover {
+    /* Hover effekt a linkekre */
+}
+
+
+/* --- LÁBLÉC --- */
+.lablec {
+    /* Lábléc háttér, padding, szöveg */
+}
+
+.lablec-megjegyzes {
+    /* Kis megjegyzés a láblécben */
+}
+
+
+/* --- EXTRA: Hover effektek, átmenetek ---
+   Próbálj ki transition-öket!
+   Példa:
+   .kartya {
+       transition: transform 0.3s ease;
+   }
+   .kartya:hover {
+       transform: scale(1.02);
+   }
+   ---------------------------------------- */

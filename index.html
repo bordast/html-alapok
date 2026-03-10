@@ -1,43 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>Kutyas weboldal</title>
+    <title>METU CSS Kert — A CSS szépsége</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body id="metu-css-kert">
 
-<body>
-    <h1>Farkas - h1</h1>
-    <h2>Farkas - h2</h2>
-    <h3>Farkas - h3</h3>
-    <h4>Farkas - h4</h4>
-    <h5>Farkas - h5</h5>
-    <h6>Farkas - h6</h6>
-    <p>A farkasok az erdő magányos vadászai.</p>
-    <p class="piros-szoveg">Piros farkasok nem léteznek.</p>
-    <img src="imgs/wolf.jpg" alt="wolf">
-    <video autoplay loop src="/videos/wolf.mp4"></video>
-    <iframe width="545" height="300" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=lLvpmKVy_iidiY9P"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="oldal-keret">
 
-    <br>
-    <table border="1">
-        <thead>
-            <th>
-            <td>Farkasok</td>
-            </th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Farkas 1</td>
-                <td>Farkas 2</td>
-            </tr>
-        </tbody>
-    </table>
+        <!-- FEJLÉC -->
+        <header class="fejlec" role="banner">
+            <h1 class="fooldal-cim">METU <span class="kiemeles">CSS</span> Kert</h1>
+            <h2 class="alcim">A stíluslapok szépsége</h2>
+        </header>
+
+        <!-- BEVEZETŐ SZEKCIÓ -->
+        <section class="bevezeto" id="intro">
+            <div class="bevezeto-szoveg">
+                <p>Üdvözlünk a <strong>Budapesti Metropolitan Egyetem</strong> Médiadesign tanszékének CSS gyakorlatán. Ez az oldal azt demonstrálja, hogy kizárólag <abbr title="Cascading Style Sheets">CSS</abbr> segítségével milyen vizuális világok teremthetők — miközben a <abbr title="HyperText Markup Language">HTML</abbr> struktúra változatlan marad.</p>
+                <p>A feladatod egyszerű: <em>formáld meg ezt az oldalt a saját stílusodra.</em> A HTML kódhoz nem nyúlhatsz — kizárólag a <code>style.css</code> fájlt szerkesztheted. Mutasd meg, mire képes a CSS!</p>
+            </div>
+        </section>
+
+        <!-- FŐ TARTALOM -->
+        <main class="tartalom" role="main">
+
+            <!-- MI EZ? -->
+            <article class="kartya" id="mi-ez">
+                <h3 class="kartya-cim">Mi ez a feladat?</h3>
+                <p>A CSS Kert egy klasszikus webfejlesztési gyakorlat, amelyet az eredeti <cite>CSS Zen Garden</cite> ihletett. A lényeg: egyetlen HTML dokumentum, végtelen megjelenési lehetőség. Minden a CSS-en múlik.</p>
+                <p>Nézz körül az interneten inspirációért, majd alkoss valami egyedit. Legyen bátor, legyen kreatív, legyen a tiéd.</p>
+            </article>
+
+            <!-- SZABÁLYOK -->
+            <article class="kartya" id="szabalyok">
+                <h3 class="kartya-cim">Játékszabályok</h3>
+                <ul class="szabaly-lista">
+                    <li class="szabaly">A HTML fájlt <strong>tilos módosítani</strong></li>
+                    <li class="szabaly">Csak a <code>style.css</code> fájlban dolgozhatsz</li>
+                    <li class="szabaly">Külső képeket használhatsz háttérként</li>
+                    <li class="szabaly">Google Fonts betűtípusok szabadon használhatók</li>
+                    <li class="szabaly">Az oldal legyen olvasható és használható</li>
+                </ul>
+            </article>
+
+            <!-- INSPIRÁCIÓ -->
+            <article class="kartya" id="inspiracio">
+                <h3 class="kartya-cim">Inspiráció</h3>
+                <p>A jó design nem véletlen — tudatos döntések sorozata. Gondolkodj el a következőkön:</p>
+                <div class="inspiracio-racsozat">
+                    <div class="inspiracio-elem" id="szinek">
+                        <h4>Színek</h4>
+                        <p>Válassz egy összehangolt színpalettát. Kevesebb néha több.</p>
+                    </div>
+                    <div class="inspiracio-elem" id="tipografia">
+                        <h4>Tipográfia</h4>
+                        <p>A betűtípus hangulatot teremt. Párosíts egy címbetűt egy olvasmányos szövegtípussal.</p>
+                    </div>
+                    <div class="inspiracio-elem" id="elrendezes">
+                        <h4>Elrendezés</h4>
+                        <p>Használd ki a teret. A margók és a padding a legjobb barátaid.</p>
+                    </div>
+                    <div class="inspiracio-elem" id="reszletek">
+                        <h4>Részletek</h4>
+                        <p>Kerekített sarkok, árnyékok, átmenetek — a kis dolgok számítanak.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- TECHNOLÓGIÁK -->
+            <article class="kartya" id="technologiak">
+                <h3 class="kartya-cim">Amit használhatsz</h3>
+                <div class="tech-lista">
+                    <span class="tech-badge">Színek &amp; háttér</span>
+                    <span class="tech-badge">Box model</span>
+                    <span class="tech-badge">Margin &amp; padding</span>
+                    <span class="tech-badge">Flexbox</span>
+                    <span class="tech-badge">Google Fonts</span>
+                    <span class="tech-badge">Border &amp; border-radius</span>
+                    <span class="tech-badge">Box-shadow</span>
+                    <span class="tech-badge">Background-image</span>
+                    <span class="tech-badge">Hover effektek</span>
+                    <span class="tech-badge">Opacity</span>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- OLDALSÁV -->
+        <aside class="oldalsav" role="complementary">
+
+            <div class="szerzo-info">
+                <h3 class="oldalsav-cim">Készítette</h3>
+                <p class="szerzo-nev">A Te Neved</p>
+                <p class="szerzo-szak">Médiadesign szak</p>
+                <p class="szerzo-ev">2025/26 tavaszi félév</p>
+            </div>
+
+            <div class="hasznos-linkek">
+                <h3 class="oldalsav-cim">Hasznos linkek</h3>
+                <nav role="navigation">
+                    <ul class="link-lista">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" class="kulso-link">MDN CSS Dokumentáció</a></li>
+                        <li><a href="https://csszengarden.com/" class="kulso-link">CSS Zen Garden</a></li>
+                        <li><a href="https://fonts.google.com/" class="kulso-link">Google Fonts</a></li>
+                        <li><a href="https://coolors.co/" class="kulso-link">Coolors — Színpaletták</a></li>
+                        <li><a href="https://flexboxfroggy.com/" class="kulso-link">Flexbox Froggy</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </aside>
+
+        <!-- LÁBLÉC -->
+        <footer class="lablec" role="contentinfo">
+            <p>Budapesti Metropolitan Egyetem — Médiadesign Tanszék</p>
+            <p class="lablec-megjegyzes">Ez a feladat a <cite>CSS Zen Garden</cite> hagyományait követi. A HTML változatlan — csak a CSS a tiéd.</p>
+        </footer>
+
+    </div>
+
 </body>
-
 </html>
