@@ -1,6 +1,6 @@
-# METU CSS Kert — Feladatkiírás
+# METU CSS Kert
 
-## HTML alapjai & CSS alapjai — Órai gyakorlat
+## HTML alapjai & CSS alapjai
 
 **Tanszék:** Médiadesign, Budapesti Metropolitan Egyetem  
 **Félév:** 2025/26 tavasz  
