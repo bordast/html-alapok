@@ -1,197 +1,197 @@
 /* ============================================
-   METU CSS KERT — Stíluslap
+   METU CSS KERT — Editorial 3D
    ============================================
-   Téma: Botanikus kert — természetes, elegáns
-   Betűtípusok: Playfair Display (cím) + Inter (szöveg)
-   Paletta: mélyzöld, arany, krémfehér, homok
+   Téma: Dark editorial, 3D tilt, immerzív
+   Betűtípus: Bebas Neue (display) + Inter (body)
+   Paletta: #0A0A0F fekete, #FF2D55 vörös accent
    ============================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
 
-/* --- GOOGLE FONTS IMPORTÁLÁS --- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
-
-
-/* --- CSS VÁLTOZÓK (színpaletta) --- */
 :root {
-    --zold-mely:    #1a3a2a;
-    --zold-kozepes: #2d6a4f;
-    --zold-vilagos: #52b788;
-    --arany:        #c9a84c;
-    --krem:         #f5f0e8;
-    --homok:        #ede0cc;
-    --feher:        #ffffff;
-    --szoveg:       #2c3e30;
-    --szoveg-halvany: #5a6e5e;
-    --arnyek: 0 4px 20px rgba(26, 58, 42, 0.12);
-    --arnyek-nagy: 0 8px 40px rgba(26, 58, 42, 0.18);
+    --bg:          #0A0A0F;
+    --surface:     #131320;
+    --card:        #17172A;
+    --card-hover:  #1E1E35;
+    --border:      rgba(255, 255, 255, 0.07);
+    --border-bright: rgba(255, 255, 255, 0.15);
+    --accent:      #FF2D55;
+    --accent-dim:  rgba(255, 45, 85, 0.15);
+    --accent-blue: #4D7EFF;
+    --text:        #EEEEF5;
+    --text-muted:  #6B6B90;
+    --text-dim:    #3A3A58;
+    --ease:        cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-
-/* --- ALAP BEÁLLÍTÁSOK --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ─── RESET ─────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--krem);
+    background-color: var(--bg);
     font-family: 'Inter', sans-serif;
-    color: var(--szoveg);
-    line-height: 1.7;
+    color: var(--text);
+    line-height: 1.65;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
-
-/* --- OLDAL KERET --- */
+/* ─── OLDAL KERET ────────────────────────── */
 .oldal-keret {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px 60px;
+    padding: 0 32px 100px;
 }
 
 
-/* --- FEJLÉC --- */
+/* ─── FEJLÉC ─────────────────────────────── */
 .fejlec {
-    background: linear-gradient(135deg, var(--zold-mely) 0%, var(--zold-kozepes) 60%, var(--zold-vilagos) 100%);
-    color: var(--feher);
-    text-align: center;
-    padding: 72px 40px 60px;
-    margin: 0 -24px 48px;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 64px 80px;
+    margin: 0 -32px 80px;
     overflow: hidden;
+    background: var(--bg);
 }
 
+/* Háttér rács — editorial grid */
 .fejlec::before {
     content: '';
     position: absolute;
     inset: 0;
     background-image:
-        radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(82, 183, 136, 0.2) 0%, transparent 50%);
+        linear-gradient(rgba(77, 126, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77, 126, 255, 0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+    pointer-events: none;
 }
 
+/* Vörös glowing accent vonal bal szélen */
+.fejlec::after {
+    content: '';
+    position: absolute;
+    left: 32px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--accent) 40%, var(--accent) 60%, transparent);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* "METU CSS Kert" — óriás display szöveg */
 .fooldal-cim {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 6vw, 4rem);
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 14vw, 12rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    will-change: transform;
     position: relative;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.25);
 }
 
 .kiemeles {
-    color: var(--arany);
-    font-style: italic;
+    color: var(--accent);
+    display: block;
 }
 
 .alcim {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 300;
-    margin-top: 12px;
-    opacity: 0.88;
-    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 28px;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.alcim::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    flex-shrink: 0;
 }
 
 
-/* --- BEVEZETŐ --- */
+/* ─── BEVEZETŐ ───────────────────────────── */
 .bevezeto {
-    background-color: var(--feher);
-    border-left: 5px solid var(--zold-vilagos);
-    border-radius: 0 12px 12px 0;
-    padding: 32px 36px;
-    margin-bottom: 40px;
-    box-shadow: var(--arnyek);
+    border-top: 1px solid var(--border-bright);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 0;
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Sorszám dekoráció */
+.bevezeto::before {
+    content: '—';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: var(--accent);
+    line-height: 1;
+    padding-top: 4px;
 }
 
 .bevezeto-szoveg p {
-    font-size: 1.05rem;
-    color: var(--szoveg);
-    margin-bottom: 14px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 300;
 }
 
-.bevezeto-szoveg p:last-child {
-    margin-bottom: 0;
-}
+.bevezeto-szoveg p:last-child { margin-bottom: 0; }
 
 .bevezeto-szoveg strong {
-    color: var(--zold-mely);
+    color: var(--text);
     font-weight: 600;
 }
 
 .bevezeto-szoveg em {
-    color: var(--zold-kozepes);
-    font-style: italic;
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 500;
 }
 
 .bevezeto-szoveg code {
-    background: var(--homok);
-    color: var(--zold-mely);
+    background: var(--accent-dim);
+    color: var(--accent);
     padding: 2px 8px;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
-    font-size: 0.92em;
+    font-size: 0.88em;
+    border: 1px solid rgba(255, 45, 85, 0.2);
 }
 
-abbr {
-    text-decoration: underline dotted var(--zold-vilagos);
-    cursor: help;
-}
+abbr { text-decoration: underline dotted var(--text-dim); cursor: help; }
 
 
-/* --- FŐ ELRENDEZÉS (main + aside egymás mellett) --- */
-.tartalom {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    flex: 1 1 0;
-    min-width: 0;
-}
-
-/* Main + Aside flex sor */
-.oldal-keret > main,
-.oldal-keret > aside {
-    /* ld. lent a wrapper-ben */
-}
-
-/* Flexbox: main és aside egymás mellé */
-.oldal-keret {
-    display: flex;
-    flex-direction: column;
-}
-
-.oldal-keret > .fejlec,
-.oldal-keret > .bevezeto,
-.oldal-keret > .lablec {
-    flex: none;
-}
-
-/* A main+aside-t egy sorba tesszük */
-.oldal-keret > .tartalom {
-    order: 3;
-}
-
-.oldal-keret > .oldalsav {
-    order: 4;
-}
-
-/* Asztali nézetben egymás mellé */
-@media (min-width: 800px) {
+/* ─── GRID ELRENDEZÉS ────────────────────── */
+@media (min-width: 900px) {
     .oldal-keret {
         display: grid;
-        grid-template-columns: 1fr 300px;
+        grid-template-columns: 1fr 280px;
         grid-template-rows: auto auto 1fr auto;
-        column-gap: 32px;
+        column-gap: 40px;
         grid-template-areas:
-            "fejlec  fejlec"
+            "fejlec   fejlec"
             "bevezeto bevezeto"
             "tartalom oldalsav"
-            "lablec  lablec";
+            "lablec   lablec";
     }
-
     .fejlec   { grid-area: fejlec; }
     .bevezeto { grid-area: bevezeto; }
     .tartalom { grid-area: tartalom; }
@@ -199,204 +199,101 @@ abbr {
     .lablec   { grid-area: lablec; }
 }
 
-
-/* --- KÁRTYÁK --- */
-.kartya {
-    background-color: var(--feher);
-    border-radius: 14px;
-    padding: 32px 36px;
-    box-shadow: var(--arnyek);
-    border: 1px solid rgba(45, 106, 79, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+.tartalom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    counter-reset: kartya-szamlalo;
 }
 
+
+/* ─── KÁRTYÁK — 3D tilt ──────────────────── */
+.kartya {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    /* 3D tilt */
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    counter-increment: kartya-szamlalo;
+}
+
+/* Felső accent vonal (hover esetén látható) */
+.kartya::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    height: 2px;
+    background: var(--accent);
+    transition: right 0.4s var(--ease);
+}
+
+.kartya:hover::before { right: 0; }
+
+/* Sorszám — editorial konvenció */
+.kartya::after {
+    content: counter(kartya-szamlalo, decimal-leading-zero);
+    position: absolute;
+    top: 32px;
+    right: 36px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: var(--text-dim);
+    line-height: 1;
+    pointer-events: none;
+    transition: color 0.3s ease;
+    transform: translateZ(0px);
+}
+
+.kartya:hover::after { color: var(--accent-dim); }
+
 .kartya:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--arnyek-nagy);
+    border-color: rgba(255, 45, 85, 0.25);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 45, 85, 0.1);
+}
+
+/* 3D belső tartalom réteg */
+.kartya-cim,
+.kartya p,
+.szabaly-lista,
+.inspiracio-racsozat,
+.tech-lista {
+    transform: translateZ(20px);
+    position: relative;
 }
 
 .kartya-cim {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.45rem;
-    color: var(--zold-mely);
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--homok);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.25s ease;
+    max-width: calc(100% - 80px);
 }
+
+.kartya:hover .kartya-cim { color: var(--accent); }
 
 .kartya p {
-    color: var(--szoveg-halvany);
+    color: var(--text-muted);
     margin-bottom: 12px;
+    font-weight: 300;
 }
-
-.kartya p:last-child {
-    margin-bottom: 0;
-}
-
-.kartya cite {
-    font-style: italic;
-    color: var(--arany);
-}
+.kartya p:last-child { margin-bottom: 0; }
+.kartya cite { color: var(--accent-blue); font-style: italic; }
 
 
-/* --- SZABÁLYOK LISTA --- */
+/* ─── SZABÁLYOK ──────────────────────────── */
 .szabaly-lista {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.szabaly {
-    padding: 12px 16px;
-    background: var(--krem);
-    border-radius: 8px;
-    border-left: 4px solid var(--zold-vilagos);
-    font-size: 0.97rem;
-    color: var(--szoveg);
-    transition: background 0.2s ease;
-}
-
-.szabaly:hover {
-    background: var(--homok);
-}
-
-.szabaly strong {
-    color: var(--zold-mely);
-}
-
-.szabaly code {
-    background: rgba(82, 183, 136, 0.15);
-    color: var(--zold-kozepes);
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9em;
-}
-
-
-/* --- INSPIRÁCIÓ RÁCS --- */
-.inspiracio-racsozat {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.inspiracio-elem {
-    flex: 1 1 calc(50% - 8px);
-    min-width: 160px;
-    background: linear-gradient(145deg, var(--krem), var(--homok));
-    border-radius: 10px;
-    padding: 20px;
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    box-shadow: 0 2px 8px rgba(26, 58, 42, 0.07);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.inspiracio-elem:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 18px rgba(26, 58, 42, 0.15);
-}
-
-.inspiracio-elem h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: var(--zold-mely);
-    margin-bottom: 8px;
-    font-weight: 700;
-}
-
-.inspiracio-elem p {
-    font-size: 0.88rem;
-    color: var(--szoveg-halvany);
-    margin: 0;
-    line-height: 1.5;
-}
-
-
-/* --- TECHNOLÓGIA BADGE-EK --- */
-.tech-lista {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 8px;
-}
-
-.tech-badge {
-    background: var(--zold-mely);
-    color: var(--feher);
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    box-shadow: 0 2px 6px rgba(26, 58, 42, 0.2);
-    transition: background 0.2s ease, transform 0.15s ease;
-    cursor: default;
-}
-
-.tech-badge:hover {
-    background: var(--arany);
-    color: var(--zold-mely);
-    transform: translateY(-2px);
-}
-
-
-/* --- OLDALSÁV --- */
-.oldalsav {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding-top: 0;
-}
-
-.szerzo-info,
-.hasznos-linkek {
-    background: var(--feher);
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: var(--arnyek);
-    border: 1px solid rgba(45, 106, 79, 0.08);
-}
-
-.szerzo-info {
-    background: linear-gradient(145deg, var(--zold-mely), var(--zold-kozepes));
-    color: var(--feher);
-    text-align: center;
-}
-
-.oldalsav-cim {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-.hasznos-linkek .oldalsav-cim {
-    color: var(--zold-mely);
-    border-bottom-color: var(--homok);
-}
-
-.szerzo-nev {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: var(--arany);
-}
-
-.szerzo-szak,
-.szerzo-ev {
-    font-size: 0.88rem;
-    opacity: 0.82;
-    margin-bottom: 2px;
-}
-
-
-/* --- LINKEK --- */
-.link-lista {
     list-style: none;
     padding: 0;
     display: flex;
@@ -404,45 +301,322 @@ abbr {
     gap: 6px;
 }
 
-.kulso-link {
-    color: var(--zold-kozepes);
-    text-decoration: none;
-    font-size: 0.92rem;
+.szabaly {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 0.94rem;
+    color: var(--text-muted);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s var(--ease);
+    cursor: default;
+}
+
+.szabaly:hover {
+    background: var(--accent-dim);
+    border-color: rgba(255, 45, 85, 0.3);
+    color: var(--text);
+    transform: translateX(8px);
+}
+
+.szabaly strong { color: var(--text); font-weight: 600; }
+.szabaly code {
+    background: rgba(255,255,255,0.06);
+    color: var(--accent-blue);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.87em;
+}
+
+
+/* ─── INSPIRÁCIÓ RÁCS ────────────────────── */
+.inspiracio-racsozat {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.inspiracio-elem {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 20px;
+    transform-style: preserve-3d;
+    transform: perspective(600px);
+    transition: border-color 0.25s ease, background 0.25s ease;
+    cursor: default;
+}
+
+.inspiracio-elem:hover {
+    background: rgba(77, 126, 255, 0.07);
+    border-color: rgba(77, 126, 255, 0.3);
+}
+
+.inspiracio-elem h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.inspiracio-elem:hover h4 { color: var(--accent-blue); }
+
+.inspiracio-elem p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+
+/* ─── TECH BADGE-EK ──────────────────────── */
+.tech-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.tech-badge {
+    background: transparent;
+    color: var(--text-muted);
+    padding: 5px 12px;
+    border-radius: 2px;
+    font-size: 0.78rem;
     font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-spring);
+    cursor: default;
+}
+
+.tech-badge:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    transform: translateY(-3px) scale(1.05);
+}
+
+
+/* ─── OLDALSÁV ───────────────────────────── */
+.oldalsav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.szerzo-info,
+.hasznos-linkek {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.szerzo-info {
+    background: var(--accent);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Háttér minta a szerző kártyán */
+.szerzo-info::before {
+    content: 'METU';
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    color: rgba(0,0,0,0.15);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.oldalsav-cim {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.hasznos-linkek .oldalsav-cim {
+    color: var(--text);
+    border-bottom-color: var(--border);
+}
+
+.szerzo-nev {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.03em;
+    color: #fff;
+    margin-bottom: 4px;
+    position: relative;
+}
+
+.szerzo-szak,
+.szerzo-ev {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+
+/* ─── LINKEK ─────────────────────────────── */
+.link-lista { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+
+.kulso-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
     display: block;
-    padding: 7px 10px;
-    border-radius: 6px;
-    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.18s ease, padding-left 0.2s var(--ease);
+    position: relative;
+}
+
+.kulso-link::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    color: var(--accent);
+    transition: opacity 0.18s ease, left 0.18s ease;
 }
 
 .kulso-link:hover {
-    background: var(--krem);
-    color: var(--zold-mely);
-    padding-left: 16px;
-    text-decoration: underline;
+    color: var(--text);
+    padding-left: 20px;
 }
 
+.kulso-link:hover::before { opacity: 1; left: 0; }
 
-/* --- LÁBLÉC --- */
+.link-lista li:last-child .kulso-link { border-bottom: none; }
+
+
+/* ─── LÁBLÉC ─────────────────────────────── */
 .lablec {
-    margin-top: 48px;
-    padding: 28px 36px;
-    background-color: var(--zold-mely);
-    color: rgba(255, 255, 255, 0.75);
-    text-align: center;
-    border-radius: 14px;
-    font-size: 0.9rem;
-    line-height: 1.8;
+    margin-top: 64px;
+    padding: 40px;
+    border-top: 1px solid var(--border-bright);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.lablec p:first-child {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    color: var(--text);
 }
 
 .lablec-megjegyzes {
-    margin-top: 6px;
-    font-size: 0.82rem;
-    opacity: 0.6;
+    font-size: 0.78rem;
+    color: var(--text-dim);
     font-style: italic;
 }
 
-.lablec cite {
-    color: var(--arany);
-    font-style: italic;
+.lablec cite { color: var(--accent-blue); font-style: italic; }
+
+
+/* ─────────────────────────────────────────
+   MEGJELENÉSI ANIMÁCIÓK (JS IntersectionObserver)
+   ───────────────────────────────────────── */
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.80); }
+    to   { opacity: 1; transform: scale(1); }
+}
+@keyframes revealLeft {
+    from { opacity: 0; transform: translateX(-30px) skewX(-3deg); }
+    to   { opacity: 1; transform: translateX(0) skewX(0deg); }
+}
+
+/* Kezdeti rejtett állapot */
+.fooldal-cim, .alcim, .bevezeto,
+.tartalom .kartya, .szabaly,
+.inspiracio-elem, .tech-badge,
+.szerzo-info, .hasznos-linkek,
+.link-lista li, .lablec {
+    opacity: 0;
+}
+
+/* .is-visible animációk */
+.fooldal-cim.is-visible { animation: revealLeft 1s var(--ease) both; }
+.alcim.is-visible        { animation: fadeInLeft 0.7s var(--ease) 0.15s both; }
+.bevezeto.is-visible     { animation: fadeInLeft 0.7s var(--ease) both; }
+.kartya.is-visible       { animation: slideUp 0.6s var(--ease) both; }
+
+.szabaly.is-visible:nth-child(1) { animation: fadeInLeft 0.45s var(--ease) 0.00s both; }
+.szabaly.is-visible:nth-child(2) { animation: fadeInLeft 0.45s var(--ease) 0.07s both; }
+.szabaly.is-visible:nth-child(3) { animation: fadeInLeft 0.45s var(--ease) 0.14s both; }
+.szabaly.is-visible:nth-child(4) { animation: fadeInLeft 0.45s var(--ease) 0.21s both; }
+.szabaly.is-visible:nth-child(5) { animation: fadeInLeft 0.45s var(--ease) 0.28s both; }
+
+.inspiracio-elem.is-visible:nth-child(1) { animation: popIn 0.5s var(--ease) 0.00s both; }
+.inspiracio-elem.is-visible:nth-child(2) { animation: popIn 0.5s var(--ease) 0.09s both; }
+.inspiracio-elem.is-visible:nth-child(3) { animation: popIn 0.5s var(--ease) 0.18s both; }
+.inspiracio-elem.is-visible:nth-child(4) { animation: popIn 0.5s var(--ease) 0.27s both; }
+
+.tech-badge.is-visible:nth-child(1)  { animation: popIn 0.35s var(--ease) 0.00s both; }
+.tech-badge.is-visible:nth-child(2)  { animation: popIn 0.35s var(--ease) 0.05s both; }
+.tech-badge.is-visible:nth-child(3)  { animation: popIn 0.35s var(--ease) 0.10s both; }
+.tech-badge.is-visible:nth-child(4)  { animation: popIn 0.35s var(--ease) 0.15s both; }
+.tech-badge.is-visible:nth-child(5)  { animation: popIn 0.35s var(--ease) 0.20s both; }
+.tech-badge.is-visible:nth-child(6)  { animation: popIn 0.35s var(--ease) 0.25s both; }
+.tech-badge.is-visible:nth-child(7)  { animation: popIn 0.35s var(--ease) 0.30s both; }
+.tech-badge.is-visible:nth-child(8)  { animation: popIn 0.35s var(--ease) 0.35s both; }
+.tech-badge.is-visible:nth-child(9)  { animation: popIn 0.35s var(--ease) 0.40s both; }
+.tech-badge.is-visible:nth-child(10) { animation: popIn 0.35s var(--ease) 0.45s both; }
+
+.szerzo-info.is-visible    { animation: fadeInRight 0.6s var(--ease) both; }
+.hasznos-linkek.is-visible { animation: fadeInRight 0.6s var(--ease) 0.1s both; }
+
+.link-lista li.is-visible:nth-child(1) { animation: fadeInRight 0.4s var(--ease) 0.00s both; }
+.link-lista li.is-visible:nth-child(2) { animation: fadeInRight 0.4s var(--ease) 0.07s both; }
+.link-lista li.is-visible:nth-child(3) { animation: fadeInRight 0.4s var(--ease) 0.14s both; }
+.link-lista li.is-visible:nth-child(4) { animation: fadeInRight 0.4s var(--ease) 0.21s both; }
+.link-lista li.is-visible:nth-child(5) { animation: fadeInRight 0.4s var(--ease) 0.28s both; }
+
+.lablec.is-visible { animation: slideUp 0.6s var(--ease) both; }
+
+/* Akadálymentesség */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
 }
