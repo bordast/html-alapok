@@ -1,622 +1,172 @@
 /* ============================================
-   METU CSS KERT — Editorial 3D
+   METU CSS KERT — Starter Stíluslap
    ============================================
-   Téma: Dark editorial, 3D tilt, immerzív
-   Betűtípus: Bebas Neue (display) + Inter (body)
-   Paletta: #0A0A0F fekete, #FF2D55 vörös accent
+   
+   Ez a te vásznod! Csak ezt a fájlt szerkesztheted.
+   A HTML kódhoz NE NYÚLJ.
+   
+   Tippek:
+   - Használj Google Fonts-ot: https://fonts.google.com/
+     Példa: @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+   - Színpaletta generátor: https://coolors.co/
+   - CSS referencia: https://developer.mozilla.org/en-US/docs/Web/CSS
+   
+   Sok sikert! 🎨
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
 
-:root {
-    --bg:          #0A0A0F;
-    --surface:     #131320;
-    --card:        #17172A;
-    --card-hover:  #1E1E35;
-    --border:      rgba(255, 255, 255, 0.07);
-    --border-bright: rgba(255, 255, 255, 0.15);
-    --accent:      #FF2D55;
-    --accent-dim:  rgba(255, 45, 85, 0.15);
-    --accent-blue: #4D7EFF;
-    --text:        #EEEEF5;
-    --text-muted:  #6B6B90;
-    --text-dim:    #3A3A58;
-    --ease:        cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+/* --- GOOGLE FONTS IMPORTÁLÁS ---
+   Cseréld ki a saját választásodra!
+   -------------------------------- */
+/* @import url('https://fonts.googleapis.com/css2?family=VALASZD+KI&display=swap'); */
+
+
+/* --- ALAP BEÁLLÍTÁSOK --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-/* ─── RESET ─────────────────────────────── */
-* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--bg);
-    font-family: 'Inter', sans-serif;
-    color: var(--text);
-    line-height: 1.65;
-    font-size: 16px;
-    overflow-x: hidden;
+    /* Háttérszín */
+    background-color: #ffffff;
+    /* Betűtípus */
+    font-family: sans-serif;
+    /* Betűszín */
+    color: #333333;
+    /* Sormagasság */
+    line-height: 1.6;
 }
 
-/* ─── OLDAL KERET ────────────────────────── */
+
+/* --- OLDAL KERET --- */
 .oldal-keret {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 32px 100px;
+    /* Az egész oldal kerete / szélessége */
 }
 
 
-/* ─── FEJLÉC ─────────────────────────────── */
+/* --- FEJLÉC --- */
 .fejlec {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 64px 80px;
-    margin: 0 -32px 80px;
-    overflow: hidden;
-    background: var(--bg);
+    /* Háttér, padding, szöveg igazítás */
 }
 
-/* Háttér rács — editorial grid */
-.fejlec::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(77, 126, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(77, 126, 255, 0.04) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
-    pointer-events: none;
-}
-
-/* Vörös glowing accent vonal bal szélen */
-.fejlec::after {
-    content: '';
-    position: absolute;
-    left: 32px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, transparent, var(--accent) 40%, var(--accent) 60%, transparent);
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-/* "METU CSS Kert" — óriás display szöveg */
 .fooldal-cim {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(5rem, 14vw, 12rem);
-    line-height: 0.9;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    will-change: transform;
-    position: relative;
+    /* Főcím stílusa */
 }
 
 .kiemeles {
-    color: var(--accent);
-    display: block;
+    /* A "CSS" szó kiemelése a címben */
 }
 
 .alcim {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 28px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.alcim::before {
-    content: '';
-    display: inline-block;
-    width: 40px;
-    height: 1px;
-    background: var(--accent);
-    flex-shrink: 0;
+    /* Alcím stílusa */
 }
 
 
-/* ─── BEVEZETŐ ───────────────────────────── */
+/* --- BEVEZETŐ --- */
 .bevezeto {
-    border-top: 1px solid var(--border-bright);
-    border-bottom: 1px solid var(--border);
-    padding: 40px 0;
-    margin-bottom: 64px;
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-/* Sorszám dekoráció */
-.bevezeto::before {
-    content: '—';
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem;
-    color: var(--accent);
-    line-height: 1;
-    padding-top: 4px;
+    /* A bevezető szekció háttere, padding-ja */
 }
 
 .bevezeto-szoveg p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-    font-weight: 300;
-}
-
-.bevezeto-szoveg p:last-child { margin-bottom: 0; }
-
-.bevezeto-szoveg strong {
-    color: var(--text);
-    font-weight: 600;
-}
-
-.bevezeto-szoveg em {
-    color: var(--accent);
-    font-style: normal;
-    font-weight: 500;
-}
-
-.bevezeto-szoveg code {
-    background: var(--accent-dim);
-    color: var(--accent);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.88em;
-    border: 1px solid rgba(255, 45, 85, 0.2);
-}
-
-abbr { text-decoration: underline dotted var(--text-dim); cursor: help; }
-
-
-/* ─── GRID ELRENDEZÉS ────────────────────── */
-@media (min-width: 900px) {
-    .oldal-keret {
-        display: grid;
-        grid-template-columns: 1fr 280px;
-        grid-template-rows: auto auto 1fr auto;
-        column-gap: 40px;
-        grid-template-areas:
-            "fejlec   fejlec"
-            "bevezeto bevezeto"
-            "tartalom oldalsav"
-            "lablec   lablec";
-    }
-    .fejlec   { grid-area: fejlec; }
-    .bevezeto { grid-area: bevezeto; }
-    .tartalom { grid-area: tartalom; }
-    .oldalsav { grid-area: oldalsav; }
-    .lablec   { grid-area: lablec; }
-}
-
-.tartalom {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    counter-reset: kartya-szamlalo;
+    /* Bevezető bekezdések */
 }
 
 
-/* ─── KÁRTYÁK — 3D tilt ──────────────────── */
+/* --- KÁRTYÁK (a fő tartalom elemei) --- */
 .kartya {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 36px 40px;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-    /* 3D tilt */
-    transform-style: preserve-3d;
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    counter-increment: kartya-szamlalo;
-}
-
-/* Felső accent vonal (hover esetén látható) */
-.kartya::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 100%;
-    height: 2px;
-    background: var(--accent);
-    transition: right 0.4s var(--ease);
-}
-
-.kartya:hover::before { right: 0; }
-
-/* Sorszám — editorial konvenció */
-.kartya::after {
-    content: counter(kartya-szamlalo, decimal-leading-zero);
-    position: absolute;
-    top: 32px;
-    right: 36px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5rem;
-    color: var(--text-dim);
-    line-height: 1;
-    pointer-events: none;
-    transition: color 0.3s ease;
-    transform: translateZ(0px);
-}
-
-.kartya:hover::after { color: var(--accent-dim); }
-
-.kartya:hover {
-    border-color: rgba(255, 45, 85, 0.25);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 45, 85, 0.1);
-}
-
-/* 3D belső tartalom réteg */
-.kartya-cim,
-.kartya p,
-.szabaly-lista,
-.inspiracio-racsozat,
-.tech-lista {
-    transform: translateZ(20px);
-    position: relative;
+    /* Háttér, padding, margin, border, border-radius, box-shadow */
 }
 
 .kartya-cim {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    letter-spacing: 0.03em;
-    color: var(--text);
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-    transition: color 0.25s ease;
-    max-width: calc(100% - 80px);
+    /* Kártya címek stílusa */
 }
 
-.kartya:hover .kartya-cim { color: var(--accent); }
 
-.kartya p {
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    font-weight: 300;
-}
-.kartya p:last-child { margin-bottom: 0; }
-.kartya cite { color: var(--accent-blue); font-style: italic; }
-
-
-/* ─── SZABÁLYOK ──────────────────────────── */
+/* --- SZABÁLYOK LISTA --- */
 .szabaly-lista {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    /* Lista stílus (list-style, padding) */
 }
 
 .szabaly {
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    font-size: 0.94rem;
-    color: var(--text-muted);
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s var(--ease);
-    cursor: default;
-}
-
-.szabaly:hover {
-    background: var(--accent-dim);
-    border-color: rgba(255, 45, 85, 0.3);
-    color: var(--text);
-    transform: translateX(8px);
-}
-
-.szabaly strong { color: var(--text); font-weight: 600; }
-.szabaly code {
-    background: rgba(255,255,255,0.06);
-    color: var(--accent-blue);
-    padding: 1px 6px;
-    border-radius: 3px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.87em;
+    /* Egyes szabály elemek */
 }
 
 
-/* ─── INSPIRÁCIÓ RÁCS ────────────────────── */
+/* --- INSPIRÁCIÓ RÁCS --- */
 .inspiracio-racsozat {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 16px;
+    /* Használj flexbox-ot a 4 elem elrendezéséhez!
+       display: flex;
+       flex-wrap: wrap;
+       gap: ...;
+    */
 }
 
 .inspiracio-elem {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 20px;
-    transform-style: preserve-3d;
-    transform: perspective(600px);
-    transition: border-color 0.25s ease, background 0.25s ease;
-    cursor: default;
-}
-
-.inspiracio-elem:hover {
-    background: rgba(77, 126, 255, 0.07);
-    border-color: rgba(77, 126, 255, 0.3);
+    /* Egyes inspiráció kártyák */
 }
 
 .inspiracio-elem h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
-    color: var(--text);
-    margin-bottom: 8px;
-    transition: color 0.2s;
-}
-
-.inspiracio-elem:hover h4 { color: var(--accent-blue); }
-
-.inspiracio-elem p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin: 0;
-    line-height: 1.5;
-    font-weight: 300;
+    /* Inspiráció alcímek */
 }
 
 
-/* ─── TECH BADGE-EK ──────────────────────── */
+/* --- TECHNOLÓGIA BADGE-EK --- */
 .tech-lista {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
+    /* Flexbox elrendezés a badge-ekhez */
 }
 
 .tech-badge {
-    background: transparent;
-    color: var(--text-muted);
-    padding: 5px 12px;
-    border-radius: 2px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border: 1px solid var(--border);
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-spring);
-    cursor: default;
-}
-
-.tech-badge:hover {
-    background: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
-    transform: translateY(-3px) scale(1.05);
+    /* Kis címkék stílusa: háttér, padding, border-radius */
 }
 
 
-/* ─── OLDALSÁV ───────────────────────────── */
+/* --- OLDALSÁV --- */
 .oldalsav {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.szerzo-info,
-.hasznos-linkek {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 24px;
-}
-
-.szerzo-info {
-    background: var(--accent);
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Háttér minta a szerző kártyán */
-.szerzo-info::before {
-    content: 'METU';
-    position: absolute;
-    bottom: -20px;
-    right: -10px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 6rem;
-    color: rgba(0,0,0,0.15);
-    line-height: 1;
-    pointer-events: none;
+    /* Oldalsáv háttere, pozíciója */
 }
 
 .oldalsav-cim {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
-}
-
-.hasznos-linkek .oldalsav-cim {
-    color: var(--text);
-    border-bottom-color: var(--border);
+    /* Oldalsáv címek */
 }
 
 .szerzo-nev {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.03em;
-    color: #fff;
-    margin-bottom: 4px;
-    position: relative;
-}
-
-.szerzo-szak,
-.szerzo-ev {
-    font-size: 0.83rem;
-    color: rgba(255,255,255,0.7);
-    font-weight: 300;
-    margin-bottom: 2px;
-    position: relative;
+    /* Szerző neve — írd át a CSS-ben is ha akarod kiemelni */
 }
 
 
-/* ─── LINKEK ─────────────────────────────── */
-.link-lista { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+/* --- LINKEK --- */
+.link-lista {
+    /* Link lista stílus */
+}
 
 .kulso-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.88rem;
-    display: block;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-    transition: color 0.18s ease, padding-left 0.2s var(--ease);
-    position: relative;
-}
-
-.kulso-link::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    color: var(--accent);
-    transition: opacity 0.18s ease, left 0.18s ease;
+    /* Link stílus: szín, text-decoration */
 }
 
 .kulso-link:hover {
-    color: var(--text);
-    padding-left: 20px;
+    /* Hover effekt a linkekre */
 }
 
-.kulso-link:hover::before { opacity: 1; left: 0; }
 
-.link-lista li:last-child .kulso-link { border-bottom: none; }
-
-
-/* ─── LÁBLÉC ─────────────────────────────── */
+/* --- LÁBLÉC --- */
 .lablec {
-    margin-top: 64px;
-    padding: 40px;
-    border-top: 1px solid var(--border-bright);
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.lablec p:first-child {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.1em;
-    color: var(--text);
+    /* Lábléc háttér, padding, szöveg */
 }
 
 .lablec-megjegyzes {
-    font-size: 0.78rem;
-    color: var(--text-dim);
-    font-style: italic;
+    /* Kis megjegyzés a láblécben */
 }
 
-.lablec cite { color: var(--accent-blue); font-style: italic; }
 
-
-/* ─────────────────────────────────────────
-   MEGJELENÉSI ANIMÁCIÓK (JS IntersectionObserver)
-   ───────────────────────────────────────── */
-
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-40px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-60px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(60px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes popIn {
-    from { opacity: 0; transform: scale(0.80); }
-    to   { opacity: 1; transform: scale(1); }
-}
-@keyframes revealLeft {
-    from { opacity: 0; transform: translateX(-30px) skewX(-3deg); }
-    to   { opacity: 1; transform: translateX(0) skewX(0deg); }
-}
-
-/* Kezdeti rejtett állapot */
-.fooldal-cim, .alcim, .bevezeto,
-.tartalom .kartya, .szabaly,
-.inspiracio-elem, .tech-badge,
-.szerzo-info, .hasznos-linkek,
-.link-lista li, .lablec {
-    opacity: 0;
-}
-
-/* .is-visible animációk */
-.fooldal-cim.is-visible { animation: revealLeft 1s var(--ease) both; }
-.alcim.is-visible        { animation: fadeInLeft 0.7s var(--ease) 0.15s both; }
-.bevezeto.is-visible     { animation: fadeInLeft 0.7s var(--ease) both; }
-.kartya.is-visible       { animation: slideUp 0.6s var(--ease) both; }
-
-.szabaly.is-visible:nth-child(1) { animation: fadeInLeft 0.45s var(--ease) 0.00s both; }
-.szabaly.is-visible:nth-child(2) { animation: fadeInLeft 0.45s var(--ease) 0.07s both; }
-.szabaly.is-visible:nth-child(3) { animation: fadeInLeft 0.45s var(--ease) 0.14s both; }
-.szabaly.is-visible:nth-child(4) { animation: fadeInLeft 0.45s var(--ease) 0.21s both; }
-.szabaly.is-visible:nth-child(5) { animation: fadeInLeft 0.45s var(--ease) 0.28s both; }
-
-.inspiracio-elem.is-visible:nth-child(1) { animation: popIn 0.5s var(--ease) 0.00s both; }
-.inspiracio-elem.is-visible:nth-child(2) { animation: popIn 0.5s var(--ease) 0.09s both; }
-.inspiracio-elem.is-visible:nth-child(3) { animation: popIn 0.5s var(--ease) 0.18s both; }
-.inspiracio-elem.is-visible:nth-child(4) { animation: popIn 0.5s var(--ease) 0.27s both; }
-
-.tech-badge.is-visible:nth-child(1)  { animation: popIn 0.35s var(--ease) 0.00s both; }
-.tech-badge.is-visible:nth-child(2)  { animation: popIn 0.35s var(--ease) 0.05s both; }
-.tech-badge.is-visible:nth-child(3)  { animation: popIn 0.35s var(--ease) 0.10s both; }
-.tech-badge.is-visible:nth-child(4)  { animation: popIn 0.35s var(--ease) 0.15s both; }
-.tech-badge.is-visible:nth-child(5)  { animation: popIn 0.35s var(--ease) 0.20s both; }
-.tech-badge.is-visible:nth-child(6)  { animation: popIn 0.35s var(--ease) 0.25s both; }
-.tech-badge.is-visible:nth-child(7)  { animation: popIn 0.35s var(--ease) 0.30s both; }
-.tech-badge.is-visible:nth-child(8)  { animation: popIn 0.35s var(--ease) 0.35s both; }
-.tech-badge.is-visible:nth-child(9)  { animation: popIn 0.35s var(--ease) 0.40s both; }
-.tech-badge.is-visible:nth-child(10) { animation: popIn 0.35s var(--ease) 0.45s both; }
-
-.szerzo-info.is-visible    { animation: fadeInRight 0.6s var(--ease) both; }
-.hasznos-linkek.is-visible { animation: fadeInRight 0.6s var(--ease) 0.1s both; }
-
-.link-lista li.is-visible:nth-child(1) { animation: fadeInRight 0.4s var(--ease) 0.00s both; }
-.link-lista li.is-visible:nth-child(2) { animation: fadeInRight 0.4s var(--ease) 0.07s both; }
-.link-lista li.is-visible:nth-child(3) { animation: fadeInRight 0.4s var(--ease) 0.14s both; }
-.link-lista li.is-visible:nth-child(4) { animation: fadeInRight 0.4s var(--ease) 0.21s both; }
-.link-lista li.is-visible:nth-child(5) { animation: fadeInRight 0.4s var(--ease) 0.28s both; }
-
-.lablec.is-visible { animation: slideUp 0.6s var(--ease) both; }
-
-/* Akadálymentesség */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation: none !important;
-        transition-duration: 0.01ms !important;
-    }
-}
+/* --- EXTRA: Hover effektek, átmenetek ---
+   Próbálj ki transition-öket!
+   Példa:
+   .kartya {
+       transition: transform 0.3s ease;
+   }
+   .kartya:hover {
+       transform: scale(1.02);
+   }
+   ---------------------------------------- */
