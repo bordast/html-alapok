@@ -1,82 +1,80 @@
-/* ============================================
-   METU CSS KERT — Starter Stíluslap
-   ============================================
-   
-   Ez a te vásznod! Csak ezt a fájlt szerkesztheted.
-   A HTML kódhoz NE NYÚLJ.
-   
-   Tippek:
-   - Használj Google Fonts-ot: https://fonts.google.com/
-     Példa: @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-   - Színpaletta generátor: https://coolors.co/
-   - CSS referencia: https://developer.mozilla.org/en-US/docs/Web/CSS
-   
-   Sok sikert! 🎨
-   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 
-/* --- GOOGLE FONTS IMPORTÁLÁS ---
-   Cseréld ki a saját választásodra!
-   -------------------------------- */
-/* @import url('https://fonts.googleapis.com/css2?family=VALASZD+KI&display=swap'); */
 
-
-/* --- ALAP BEÁLLÍTÁSOK --- */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 body {
-    /* Háttérszín */
-    background-color: #ffffff;
-    /* Betűtípus */
-    font-family: sans-serif;
-    /* Betűszín */
-    color: #333333;
-    /* Sormagasság */
+    background-color: #fbf9f1;
+    font-family: Sora;
+    color: #151616;
     line-height: 1.6;
+    width: 100vw;
 }
 
 
 /* --- OLDAL KERET --- */
 .oldal-keret {
-    /* Az egész oldal kerete / szélessége */
+    margin: 0;
+    padding: 0;
 }
 
 
 /* --- FEJLÉC --- */
 .fejlec {
-    /* Háttér, padding, szöveg igazítás */
+    padding: 64px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+
+    background: #bee3db;
 }
 
 .fooldal-cim {
-    /* Főcím stílusa */
+    font-size: 128px;
 }
 
 .kiemeles {
-    /* A "CSS" szó kiemelése a címben */
+    background: linear-gradient(to right, #006d77, #83c5be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .alcim {
-    /* Alcím stílusa */
+    font-weight: 300;
+    font-style: italic;
+    color: #006d77;
 }
 
 
 /* --- BEVEZETŐ --- */
 .bevezeto {
-    /* A bevezető szekció háttere, padding-ja */
+    padding: 128px 64px;
 }
 
-.bevezeto-szoveg p {
-    /* Bevezető bekezdések */
-}
+.bevezeto-szoveg p {}
 
+.tartalom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 32px 64px;
+    gap: 32px;
+}
 
 /* --- KÁRTYÁK (a fő tartalom elemei) --- */
 .kartya {
-    /* Háttér, padding, margin, border, border-radius, box-shadow */
+    padding: 32px;
+    background: linear-gradient(to top, #83c5be, #006d77);
+    color: white;
+    border-radius: 24px;
 }
 
 .kartya-cim {
@@ -86,7 +84,8 @@ body {
 
 /* --- SZABÁLYOK LISTA --- */
 .szabaly-lista {
-    /* Lista stílus (list-style, padding) */
+    list-style: decimal;
+    margin-left: 24px;
 }
 
 .szabaly {
