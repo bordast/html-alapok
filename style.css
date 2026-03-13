@@ -119,20 +119,124 @@
     font-style: italic;
 }
 
+/* --- COMMIT MONO --- */
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-200-normal.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-200-italic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-300-normal.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-300-italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-400-normal.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-400-italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-500-normal.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-500-italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-600-normal.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-600-italic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-700-normal.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CommitMono';
+    src: url('fonts/commit-mono-latin-700-italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+:root {
+    /* Base surfaces */
+    --color-bg-page: #F7F4EE;
+    --color-bg-surface: #EDE9E0;
+    --color-bg-border: #E2DDD3;
+
+    /* Typography */
+    --color-text-primary: #1A1714;
+    --color-text-secondary: #5C5650;
+    --color-text-muted: #9C9690;
+
+    /* Accent — terracotta */
+    --color-accent-tint: #FBF0EB;
+    --color-accent-light: #E8986A;
+    --color-accent: #C85E2F;
+    --color-accent-dark: #A04520;
+    --color-accent-deep: #6B2D12;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box
 }
 
-h1 {
+code {
+    font-family: 'CommitMono', monospace;
+    font-weight: 400;
+    font-size: 0.875em;
+    color: var(--color-accent-dark);
+    background-color: var(--color-accent-tint);
+    border: 1px solid var(--color-bg-border);
+    border-radius: 4px;
+    padding: 0.15em 0.45em;
+}
+
+h1, h2, h3 {
     font-family: AlmarenaNeueDisplay;
 }
 
 body {
-    background-color: #fbf9f1;
+    background-color: var(--color-bg-page);
     font-family: Sora;
-    color: #151616;
+    color: var(--color-text-primary);
     line-height: 1.6;
     width: 100vw;
 }
@@ -155,7 +259,7 @@ body {
     align-items: left;
     justify-content: center;
 
-    background: #bee3db;
+    background: var(--color-bg-surface);
 }
 
 .fooldal-cim {
@@ -163,16 +267,13 @@ body {
 }
 
 .kiemeles {
-    background: linear-gradient(to right, #006d77, #83c5be);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-accent);
 }
 
 .alcim {
     font-weight: 300;
     font-style: italic;
-    color: #006d77;
+    color: var(--color-accent-light);
 }
 
 
@@ -195,13 +296,14 @@ body {
 /* --- KÁRTYÁK (a fő tartalom elemei) --- */
 .kartya {
     padding: 32px;
-    background: linear-gradient(to top, #83c5be, #006d77);
-    color: white;
+    background: var(--color-bg-surface);
+    border: solid 1px var(--color-bg-border);
+    color: var(--color-text-primary);
     border-radius: 24px;
 }
 
 .kartya-cim {
-    /* Kártya címek stílusa */
+    color: var(--color-accent-dark);
 }
 
 
@@ -212,17 +314,15 @@ body {
 }
 
 .szabaly {
-    /* Egyes szabály elemek */
+
 }
 
 
 /* --- INSPIRÁCIÓ RÁCS --- */
 .inspiracio-racsozat {
-    /* Használj flexbox-ot a 4 elem elrendezéséhez!
-       display: flex;
-       flex-wrap: wrap;
-       gap: ...;
-    */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
 }
 
 .inspiracio-elem {
