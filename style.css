@@ -1,11 +1,132 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
+/* --- ALMARENA NEUE --- */
+@font-face {
+    font-family: 'AlmarenaNeue';
+    src: url('fonts/AlmarenaNeue-Black-iF66afd734a9f0e.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeue';
+    src: url('fonts/AlmarenaNeue-BlackItalic-iF66afd734af400.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AlmarenaNeue';
+    src: url('fonts/AlmarenaNeue-Bold-iF66afd734b3748.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeue';
+    src: url('fonts/AlmarenaNeue-BoldItalic-iF66afd734b7c72.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
 
+/* --- ALMARENA NEUE DISPLAY --- */
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-ExtraLight-iF66afd734d4e52.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-ExtraLightItalic-iF66afd734d97c6.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-Light-iF66afd734ddfb2.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-LightItalic-iF66afd734e25ef.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-Regular-iF66afd734ef9a2.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-RegularItalic-iF66afd734f3c92.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-Medium-iF66afd734e6b8e.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-MediumItalic-iF66afd734eb28a.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-SemiBold-iF66afd73503c4b.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-Bold-iF66afd734c41db.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-BoldItalic-iF66afd734c857c.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-ExtraBold-iF66afd734cc909.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-ExtraBoldItalic-iF66afd734d0c1b.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-Black-iF66afd734bbfc9.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AlmarenaNeueDisplay';
+    src: url('fonts/AlmarenaNeueDisplay-BlackItalic-iF66afd734bfd63.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box
+}
+
+h1 {
+    font-family: AlmarenaNeueDisplay;
 }
 
 body {
@@ -60,7 +181,9 @@ body {
     padding: 128px 64px;
 }
 
-.bevezeto-szoveg p {}
+.bevezeto-szoveg p {
+
+}
 
 .tartalom {
     display: grid;
