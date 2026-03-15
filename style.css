@@ -246,11 +246,20 @@ body {
 .oldal-keret {
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    column-gap: 32px;
+    grid-template-areas:
+        "fejlec   fejlec"
+        "bevezeto bevezeto"
+        "tartalom oldalsav"
+        "lablec   lablec";
 }
 
 
 /* --- FEJLÉC --- */
 .fejlec {
+    grid-area: fejlec;
     padding: 64px;
     width: 100%;
     height: 100vh;
@@ -279,6 +288,7 @@ body {
 
 /* --- BEVEZETŐ --- */
 .bevezeto {
+    grid-area: bevezeto;
     padding: 128px 64px;
 }
 
@@ -287,9 +297,10 @@ body {
 }
 
 .tartalom {
+    grid-area: tartalom;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 32px 64px;
+    margin: 32px 0 32px 64px;
     gap: 32px;
 }
 
@@ -314,7 +325,7 @@ body {
 }
 
 .szabaly {
-
+    
 }
 
 
@@ -326,7 +337,18 @@ body {
 }
 
 .inspiracio-elem {
-    /* Egyes inspiráció kártyák */
+    position: relative;
+    padding-left: 16px;
+}
+
+.inspiracio-elem::before{
+    position: absolute;
+    left: 0;
+    content: '';
+    height: 100%;
+    width: 4px;
+    border-radius: 8px;
+    background: var(--color-accent-dark);
 }
 
 .inspiracio-elem h4 {
@@ -336,17 +358,31 @@ body {
 
 /* --- TECHNOLÓGIA BADGE-EK --- */
 .tech-lista {
-    /* Flexbox elrendezés a badge-ekhez */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .tech-badge {
-    /* Kis címkék stílusa: háttér, padding, border-radius */
+    padding: 8px 16px;
+    background: var(--color-bg-page);
+    border: solid 1px var(--color-bg-border);
+    color: var(--color-text-secondary);
+    border-radius: 32px;
 }
 
 
 /* --- OLDALSÁV --- */
 .oldalsav {
-    /* Oldalsáv háttere, pozíciója */
+    grid-area: oldalsav;
+    position: sticky;
+    top: 32px;
+    align-self: start;
+    padding: 32px;
+    margin: 32px 64px 32px 0;
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-bg-border);
+    border-radius: 24px;
 }
 
 .oldalsav-cim {
@@ -364,17 +400,19 @@ body {
 }
 
 .kulso-link {
-    /* Link stílus: szín, text-decoration */
+    color: var(--color-accent-light);
+    text-decoration: underline;
 }
 
 .kulso-link:hover {
-    /* Hover effekt a linkekre */
+    color: var(--color-accent);
 }
 
 
 /* --- LÁBLÉC --- */
 .lablec {
-    /* Lábléc háttér, padding, szöveg */
+    grid-area: lablec;
+    padding: 64px;
 }
 
 .lablec-megjegyzes {
